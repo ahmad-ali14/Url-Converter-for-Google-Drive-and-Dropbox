@@ -2,8 +2,6 @@
 
 ### live at: https://url-converter-for-gdrive-dropbox.netlify.app/
 
-![](https://pbs.twimg.com/media/ETouJ-LXQAU_SqV?format=png&name=small)
-
 
 ## what is this ??
 - when you host an image on google drive or dropbox you can't use the direct url of your file to be an image source.
@@ -38,3 +36,5 @@ let dropboxUrl = "https://www.dropbox.com/s/degru93hceo26m6/30sec.png?dl=0";
 goobox(gDriveUrl);  // https://drive.google.com/uc?id=1VctOazcyDrm8nxoWFAWM_t5bxlpyLI9s
 goobox(dropboxUrl); // https://dl.dropbox.com/s/degru93hceo26m6/30sec.png?dl=0
 ```
+
+<img src="https://pbs.twimg.com/media/ETouJ-LXQAU_SqV?format=png&name=small" width="200px" >
