@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Url Converter for Google Drive and Dropbox</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <style>
+      .sample {
+        border: 2px solid #a1a1a1;
+        padding: 10px 40px;
+        background: #dddddd;
+        width: 100%;
+        border-radius: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center p-4">
+        Url Converter for Google Drive and Dropbox
+      </h1>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 input-group mt-5 mb-3">
+          <input
+            type="text"
+            id="form-url"
+            class="form-control"
+            placeholder="Your Google Drive and Dropbox URL"
+            aria-label="Your Google Drive and Dropbox URL"
+            aria-describedby="Your Google Drive and Dropbox URL"
+          />
+          <div class="input-group-append">
+            <button class="btn btn-secondary" id="convert-btn">
+              Convert URL
+            </button>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <fieldset class="text-center mt-5 text-center">
+        <legend>
+          Your Direct URL:
+        </legend>
+        <div class="row sample" id="resultBox">
+          <h5 class="col-12 text-center">
+            <span id="result"></span>
+          </h5>
+          <img src="" alt="" class="mt-5" style="margin: auto;" id="imageRes" />
+        </div>
+      </fieldset>
+
+      <hr />
+
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">
+          Note: if your image didn't show, check your if your url has already
+          converted, or the file permisssions.
+        </p>
+        <footer class="blockquote-footer">
+          &copf; <cite title="Source Title">Ahmad Ali</cite>,
+          <a href="" target="_blank">Star on Github</a> or
+          <a href="" target="_blank">Visit my Portfolio</a>
+        </footer>
+      </blockquote>
+    </div>
+
+    <script>
+      window.onload = function () {
+        const goobox = (url) => {
+          let dropbox_regex = /(http(s)*:\/\/)*(www\.)*(dropbox.com)/;
+          let drive_regex = /(http(s)*:\/\/)*(www\.)*(drive.google.com\/file\/d\/)/;
+          if (url.match(dropbox_regex)) {
+            return url.replace(/(http(s)*:\/\/)*(www\.)*/, "https://dl.");
+          }
+          if (url.match(drive_regex)) {
+            return `https://drive.google.com/uc?id=${url
+              .replace(drive_regex, "")
+              .match(/[\w]*\//)[0]
+              .replace(/\//, "")}`;
+          }
+          console.error("Wrong URL, not a vlid drobox or google drive url");
+          return "Wrong URL, not a vlid drobox or google drive url";
+        };
+        let convertButton = document.getElementById("convert-btn");
+        convertButton.addEventListener("click", function convert(e) {
+          e.preventDefault();
+          let url = document.getElementById("form-url").value;
+          let convertedUrl = goobox(url);
+          let resultDiv = document.getElementById("result");
+          resultDiv.innerText = convertedUrl;
+          let imageRes = document.getElementById("imageRes");
+          imageRes.src = convertedUrl;
+        });
+      };
+    </script>
+  </body>
+</html>
