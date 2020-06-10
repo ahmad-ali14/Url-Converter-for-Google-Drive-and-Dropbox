@@ -18,7 +18,7 @@
 
 
 ```js
-cconst goobox = (url)=>{
+const goobox = (url)=>{
     let dropbox_regex = /(http(s)*:\/\/)*(www\.)*(dropbox.com)/;
     let drive_regex =/(http(s)*:\/\/)*(www\.)*(drive.google.com\/file\/d\/)/;
     if(url.match(dropbox_regex)){
