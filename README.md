@@ -4,19 +4,18 @@
 ### live at: https://url-converter-for-gdrive-dropbox.netlify.app/
 
 
-
+## what is this ??
+- when you host an image on google drive or dropbox you can't use the direct url of your file to be an image source.
+- you need to make changes to this url in order to use it directly as an image source.
+- This App will take the url of your image file, and change it to be used directly as an image source.
+- Important : you need to check your files permessions first, and wether it's public.
+- another live example with react: https://ybmex.csb.app/
 
 ## functionality
 | Function title: goobox |  tags: image hosting, regex, url, google drive, dropbox, advanced |
 | :-: | :-:  |
+| return: string | Returns a string url that can be used directly as source of an image. |
 
-
-- string, Returns a string url that can be used directly as source of an image.
-- when you host an image on google drive or dropbox you can't use the direct url of your file to be an image source.
-- you need to make changes to this url in order to use it directly as an image source.
-- `goobox()` will take the url of your image file, and change it to be used directly as an image source.
-- Important : you need to check your files permessions first, and wether it's public.
-- live example: https://ybmex.csb.app/
 
 ```js
 cconst goobox = (url)=>{
